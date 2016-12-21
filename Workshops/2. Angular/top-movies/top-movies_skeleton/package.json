@@ -11,7 +11,7 @@
     "clean:start": "npm start",
     "clean": "npm cache clean && npm run rimraf -- node_modules doc coverage dist",
     "rimraf": "rimraf",
-    "server:dev": "webpack-dev-server --config config/webpack.dev.js --progress --inline --profile --watch --content-base app/ --port 3000",
+    "server:dev": "webpack-dev-server --config config/webpack.dev.js --progress --inline --profile --watch --content-base app/ --port 3005",
     "server:prod": "http-server dist --cors",
     "server": "npm run server:dev",
     "start": "npm run server:dev",
