@@ -32,36 +32,30 @@ import {Http} from '@angular/http';
 
 `]
 })
-export class AppComponent implements OnInit {
+export class MovieListComponent implements OnInit {
     movies: Array<any>;
-    pageTitle: string;
+    pageTitle: string = "Top iMDB Movies";
 
     searched: string;
-    sortedBy: any;
-    orderedBy: any;
+    sortedBy: string = 'imdbRating';
+    orderedBy: string = 'desc';
 
-    sortItems = [{name: 'Title', value: "Title"}, {name: 'Year', value: "Year"}, {
-        name: 'Rating',
-        value: "imdbRating"
-    }];
+    sortItems = [{name: 'Title', value: "Title"}, {name: 'Year', value: "Year"}, {name: 'Rating', value: "imdbRating"}];
     orderItems = [{name: 'Asc', value: "asc"}, {name: 'Desc', value: "desc"}];
 
     constructor(http: Http) {
         //called first time before the ngOnInit()
 
-        // research how to populate the movies in **this.movies**
         http.get('../data/movies.json')
             .map(res => res.json()) // Map will change your response ot json()
             .subscribe(movies => this.movies = movies,
                 err => console.log('error:', err)
             );
 
-        this.pageTitle = "I'm page title";
     }
 
-
     ngOnInit() {
-        //called after the constructor and called  after the first ngOnChanges
+        //called after the constructor and called after the first ngOnChanges
 
     }
 }

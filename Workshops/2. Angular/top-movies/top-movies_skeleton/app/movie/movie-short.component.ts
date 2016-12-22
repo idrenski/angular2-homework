@@ -1,7 +1,7 @@
 /**
  * Created by idrenski on 22/12/2016.
  */
-import {Component, Directive, Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
     selector: '[movie]',

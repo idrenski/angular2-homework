@@ -4,7 +4,7 @@
         <tbody>
         <tr class="head">
             <td colspan="2">
-                <h1>Top iMDB Movies</h1>
+                <h1>{{pageTitle}}</h1>
             </td>
         </tr>
         <tr class="head">
@@ -18,7 +18,7 @@
             <td>
                 Sort
                 <select class="form-control input-sm" name="order" id="sort" [(ngModel)]="sortedBy">
-                    <option *ngFor="let item of sortItems" [value]="item.value" [selected]="item.value == 'imdbRating'">
+                    <option *ngFor="let item of sortItems" [value]="item.value">
                         {{item.name}}
                     </option>
                 </select>
@@ -26,7 +26,7 @@
             <td>
                 Order
                 <select class="form-control input-sm" name="order" id="order" [(ngModel)]="orderedBy">
-                    <option *ngFor="let item of orderItems" [value]="item.value" [selected]="item.value == 'desc'">
+                    <option *ngFor="let item of orderItems" [value]="item.value">
                         {{item.name}}
                     </option>
                 </select>
@@ -51,7 +51,7 @@
 
 
         <tbody>
-        <tr *ngFor="let movie of movies | movieFilter : searched | movieSort: sortedBy:orderedBy" [movie]="movie">
+        <tr *ngFor="let movie of movies | movieFilter: searched | movieSort: sortedBy:orderedBy" [movie]="movie">
             <mvdb-movie-short></mvdb-movie-short>
         </tr>
         </tbody>

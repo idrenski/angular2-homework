@@ -1,12 +1,12 @@
 /**
- * Created by Lenovo X230 on 22/12/2016.
+ * Created by idrenski on 22/12/2016.
  */
 import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
     name: 'movieSort'
 })
-export class SortMoviesPipe implements PipeTransform {
+export class MovieSortPipe implements PipeTransform {
     transform(movies: Array<any>, sortedBy = 'Year', orderBy = 'asc'): any {
 
         if (movies) {

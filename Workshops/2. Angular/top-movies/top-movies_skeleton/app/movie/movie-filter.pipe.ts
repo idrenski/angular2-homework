@@ -7,13 +7,13 @@ import {Pipe, PipeTransform} from '@angular/core';
     name: 'movieFilter'
 })
 export class MovieFilterPipe implements PipeTransform {
-    transform(movies: Array<any>, filter: string): any {
+    transform(movies: Array<any>, filter = ''): any {
 
         let filteredMovies: Array<any> = [];
 
         if (movies) {
             for (let i = 0; i < movies.length; i++) {
-                if (movies[i].Title.indexOf(filter) != -1) {
+                if (movies[i].Title.toLowerCase().indexOf(filter.toLowerCase()) != -1) {
                     filteredMovies.push(movies[i])
                 }
             }
