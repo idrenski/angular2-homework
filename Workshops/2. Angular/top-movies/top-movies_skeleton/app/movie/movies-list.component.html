@@ -1,5 +1,36 @@
 <div>
-    <h1>Top iMDB Movies</h1>
+
+    <table style="width: 80%;">
+        <tbody>
+        <tr class="head">
+            <td colspan="2">
+                <h1>Top iMDB Movies</h1>
+            </td>
+        </tr>
+        <tr class="head">
+            <td colspan="2">
+                Search
+                <input type="text" class="form-control input-sm" name="search" value="o" [(ngModel)]="listFilter"/>
+            </td>
+
+        </tr>
+        <tr class="head">
+            <td>
+                Sort
+                <input type="text" class="form-control input-sm" name="sort" [(ngModel)]="sort"/>
+
+            </td>
+            <td>
+                Order
+                <input type="text" class="form-control input-sm" name="order" [(ngModel)]="order"/>
+            </td>
+
+        </tr>
+        </tbody>
+
+    </table>
+
+
     <hr>
     <table>
         <thead>
@@ -7,13 +38,13 @@
             <th>Poster</th>
             <th>Title</th>
             <th>Year</th>
-            <th align="right">Rating</th>
+            <th>Rating</th>
         </tr>
         </thead>
 
 
         <tbody>
-        <tr *ngFor="let movie of movies" [movie]="movie">
+        <tr *ngFor="let movie of movies | movieFilter : listFilter" [movie]="movie">
             <mvdb-movie-short></mvdb-movie-short>
         </tr>
         </tbody>

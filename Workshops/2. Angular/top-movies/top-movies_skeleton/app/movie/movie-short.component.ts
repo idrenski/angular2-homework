@@ -5,11 +5,7 @@ import {Component, Directive, Input} from '@angular/core';
 
 @Component({
     selector: '[movie]',
-    templateUrl: 'movie-short.component.html',
-    styles: [`    
-    td {
-        padding-left: 20px;
-    }`]
+    templateUrl: 'movie-short.component.html'
 })
 export class MovieShortComponent {
     private details: any;
@@ -22,6 +18,7 @@ export class MovieShortComponent {
     get title(): string {
         return this.details.Title;
     }
+
     get year(): string {
         return this.details.Year;
     }
