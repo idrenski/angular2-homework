@@ -36,8 +36,15 @@ export class AppComponent implements OnInit {
     movies: Array<any>;
     pageTitle: string;
 
+    searched: string;
+    sortedBy: any;
+    orderedBy: any;
+
+    sortItems = [{name: 'Title', value: "Title"}, {name: 'Year', value: "Year"}, {
+        name: 'Rating',
+        value: "imdbRating"
+    }];
     orderItems = [{name: 'Asc', value: "asc"}, {name: 'Desc', value: "desc"}];
-    ratingItems = [{name: 'Title', value: "title"}, {name: 'Year', value: "year"}, {name: 'Rating', value: "imdbRating"}];
 
     constructor(http: Http) {
         //called first time before the ngOnInit()
@@ -57,5 +64,4 @@ export class AppComponent implements OnInit {
         //called after the constructor and called  after the first ngOnChanges
 
     }
-
 }

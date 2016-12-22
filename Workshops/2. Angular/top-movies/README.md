@@ -155,7 +155,7 @@
 	```
 
 	- order - ascending or descending
-	- sort - the property to be sorted by
+	- sort - the property to be sortedBy by
 
 1. The pipe could be used in the component as well (cool)
 

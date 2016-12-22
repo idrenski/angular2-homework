@@ -10,22 +10,22 @@
         <tr class="head">
             <td colspan="2">
                 Search
-                <input type="text" class="form-control input-sm" name="search" value="o" [(ngModel)]="search"/>
+                <input type="text" class="form-control input-sm" name="search" value="o" [(ngModel)]="searched"/>
             </td>
 
         </tr>
         <tr class="head">
             <td>
                 Sort
-                <select class="form-control input-sm" name="order" id="sort" [(ngModel)]="sort">
-                    <option *ngFor="let item of ratingItems" [value]="item.value" [selected]="item.value == 'imdbRating'">
+                <select class="form-control input-sm" name="order" id="sort" [(ngModel)]="sortedBy">
+                    <option *ngFor="let item of sortItems" [value]="item.value" [selected]="item.value == 'imdbRating'">
                         {{item.name}}
                     </option>
                 </select>
             </td>
             <td>
                 Order
-                <select class="form-control input-sm" name="order" id="order" [(ngModel)]="order">
+                <select class="form-control input-sm" name="order" id="order" [(ngModel)]="orderedBy">
                     <option *ngFor="let item of orderItems" [value]="item.value" [selected]="item.value == 'desc'">
                         {{item.name}}
                     </option>
@@ -51,7 +51,7 @@
 
 
         <tbody>
-        <tr *ngFor="let movie of movies | movieFilter : search" [movie]="movie">
+        <tr *ngFor="let movie of movies | movieFilter : searched | movieSort: sortedBy:orderedBy" [movie]="movie">
             <mvdb-movie-short></mvdb-movie-short>
         </tr>
         </tbody>
