@@ -1,32 +1,27 @@
 /**
- * Created by idrenski on 21/12/2016.
+ * Created by idrenski on 22/12/2016.
  */
 import {Component, Directive, Input} from '@angular/core';
 
 @Component({
-    selector: 'mvdb-movie-short',
-    templateUrl: 'movie-short.component.html'
+    selector: '[movie]',
+    templateUrl: 'movie-short.component.html',
+    styles: [`    
+    td {
+        padding-left: 20px;
+    }`]
 })
-export class MoviesComponent {
-
-}
-
-@Directive({
-    selector: '[MovieDetails]'
-})
-export class OtherAttrDirective {
+export class MovieShortComponent {
     private details: any;
 
-    @Input('MovieDetails')
-    set MovieDetails(value: any) {
+    @Input('movie')
+    set movie(value: any) {
         this.details = value;
-        console.log(this.details.Title, this.details);
     }
 
     get title(): string {
         return this.details.Title;
     }
-
     get year(): string {
         return this.details.Year;
     }
@@ -39,6 +34,4 @@ export class OtherAttrDirective {
         return this.details.Poster;
     }
 
-
 }
-
