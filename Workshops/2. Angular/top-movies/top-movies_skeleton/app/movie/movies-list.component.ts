@@ -36,6 +36,9 @@ export class AppComponent implements OnInit {
     movies: Array<any>;
     pageTitle: string;
 
+    orderItems = [{name: 'Asc', value: "asc"}, {name: 'Desc', value: "desc"}];
+    ratingItems = [{name: 'Title', value: "title"}, {name: 'Year', value: "year"}, {name: 'Rating', value: "imdbRating"}];
+
     constructor(http: Http) {
         //called first time before the ngOnInit()
 
