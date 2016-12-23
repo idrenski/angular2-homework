@@ -1,45 +1,47 @@
-<div>
-
-    <table style="width: 80%;">
-        <tbody>
-        <tr class="head">
-            <td colspan="2">
-                <h1>{{pageTitle}}</h1>
-            </td>
-        </tr>
-        <tr class="head">
-            <td colspan="2">
-                Search
-                <input type="text" class="form-control input-sm" name="search" value="o" [(ngModel)]="searched"/>
-            </td>
-
-        </tr>
-        <tr class="head">
-            <td>
-                Sort
-                <select class="form-control input-sm" name="order" id="sort" [(ngModel)]="sortedBy">
-                    <option *ngFor="let item of sortItems" [value]="item.value">
-                        {{item.name}}
-                    </option>
-                </select>
-            </td>
-            <td>
-                Order
-                <select class="form-control input-sm" name="order" id="order" [(ngModel)]="orderedBy">
-                    <option *ngFor="let item of orderItems" [value]="item.value">
-                        {{item.name}}
-                    </option>
-                </select>
-            </td>
-
-        </tr>
-        </tbody>
-
-    </table>
+<div class="container">
 
 
-    <hr>
-    <table>
+    <div class="row">
+        <div class="col-lg-4">
+        </div>
+        <div class="col-lg-4">
+            <h1>{{pageTitle}}</h1>
+        </div>
+        <div class="col-lg-4">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4">
+        </div>
+        <div class="col-lg-4">
+            Search
+            <input type="text" class="form-control input-sm" name="search" value="o" [(ngModel)]="searched"/>
+        </div>
+        <div class="col-lg-4">
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="col-lg-6">
+            Sort
+            <select class="form-control input-sm" name="order" id="sort" [(ngModel)]="sortedBy">
+                <option *ngFor="let item of sortItems" [value]="item.value">
+                    {{item.name}}
+                </option>
+            </select>
+        </div>
+        <div class="col-lg-6">
+            Order
+            <select class="form-control input-sm" name="order" id="order" [(ngModel)]="orderedBy">
+                <option *ngFor="let item of orderItems" [value]="item.value">
+                    {{item.name}}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <table class="table table-striped col-lg-12">
         <thead>
         <tr>
             <th>Poster</th>
@@ -48,14 +50,11 @@
             <th>Rating</th>
         </tr>
         </thead>
-
-
         <tbody>
         <tr *ngFor="let movie of movies | movieFilter: searched | movieSort: sortedBy:orderedBy" [movie]="movie">
             <mvdb-movie-short></mvdb-movie-short>
         </tr>
         </tbody>
-
-
     </table>
+
 </div>
