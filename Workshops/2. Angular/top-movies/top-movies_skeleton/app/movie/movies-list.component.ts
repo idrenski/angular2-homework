@@ -6,20 +6,22 @@ import {Http} from '@angular/http';
     templateUrl: 'movies-list.component.html'
 })
 export class MovieListComponent implements OnInit {
-    movies: Array<any>;
-    pageTitle: string = "Top iMDB Movies";
+    private movies: Array<any>;
+    private pageTitle: string;
 
-    searched: string;
-    sortedBy: string = 'imdbRating';
-    orderedBy: string = 'desc';
+    private filteredBy: string;
+    private sortedBy: string;
+    private orderedBy: string;
 
-    sortItems = [{name: 'Title', value: "Title"}, {name: 'Year', value: "Year"}, {name: 'Rating', value: "imdbRating"}];
-    orderItems = [{name: 'Asc', value: "asc"}, {name: 'Desc', value: "desc"}];
+    private sortItems: Array<any>;
+    private orderItems: Array<any>;
 
-    constructor(http: Http) {
+    private moviesUrl: string = '../data/movies.json';
+
+    constructor(private http: Http) {
         //called first time before the ngOnInit()
 
-        http.get('../data/movies.json')
+        http.get(this.moviesUrl)
             .map(res => res.json()) // Map will change your response ot json()
             .subscribe(movies => this.movies = movies,
                 err => console.log('error:', err)
@@ -29,6 +31,13 @@ export class MovieListComponent implements OnInit {
 
     ngOnInit() {
         //called after the constructor and called after the first ngOnChanges
+        this.pageTitle = 'Top iMDB Movies';
+
+        this.sortItems = [{name: 'Title', value: "Title"}, {name: 'Year', value: "Year"}, {name: 'Rating', value: "imdbRating"}];
+        this.orderItems = [{name: 'Asc', value: "asc"}, {name: 'Desc', value: "desc"}];
+
+        this.sortedBy  = this.sortItems[2].value;
+        this.orderedBy = this.orderItems[1].value;
 
     }
 }

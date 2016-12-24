@@ -15,7 +15,7 @@
         </div>
         <div class="col-lg-6">
             Search
-            <input type="text" class="form-control input-sm" name="search" [(ngModel)]="searched"/>
+            <input type="text" class="form-control input-sm" name="search" [(ngModel)]="filteredBy"/>
         </div>
         <div class="col-lg-3">
         </div>
@@ -51,7 +51,7 @@
         </thead>
 
         <tbody>
-        <tr *ngFor="let movie of movies | movieFilter: searched | movieSort: sortedBy:orderedBy" [movie]="movie">
+        <tr *ngFor="let movie of movies | movieFilter: filteredBy | movieSort: sortedBy:orderedBy" [movie]="movie">
             <mvdb-movie-short></mvdb-movie-short>
         </tr>
         </tbody>
