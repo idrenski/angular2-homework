@@ -14,25 +14,25 @@
         <div class="col-lg-3">
         </div>
         <div class="col-lg-6">
-            Search
-            <input type="text" class="form-control input-sm" name="search" [(ngModel)]="filteredBy"/>
+            <label for="filter">Search</label>
+            <input type="text" class="form-control input-sm" id="filter" [(ngModel)]="filteredBy"/>
         </div>
         <div class="col-lg-3">
         </div>
     </div>
 
-    <div class="column">
+    <div class="row">
         <div class="col-lg-6">
-            Sort
-            <select class="form-control input-sm" name="order" id="sort" [(ngModel)]="sortedBy">
+            <label for="sort">Sort</label>
+            <select class="form-control input-sm" id="sort" [(ngModel)]="sortedBy">
                 <option *ngFor="let item of sortItems" [value]="item.value">
                     {{item.name}}
                 </option>
             </select>
         </div>
         <div class="col-lg-6">
-            Order
-            <select class="form-control input-sm" name="order" id="order" [(ngModel)]="orderedBy">
+            <label for="order">Order</label>
+            <select class="form-control input-sm" id="order" [(ngModel)]="orderedBy">
                 <option *ngFor="let item of orderItems" [value]="item.value">
                     {{item.name}}
                 </option>
@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <table class="table table-striped col-lg-12">
+    <table class="table table-striped">
         <thead>
         <tr>
             <th>Poster</th>

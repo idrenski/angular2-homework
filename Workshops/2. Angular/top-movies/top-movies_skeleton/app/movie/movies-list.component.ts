@@ -21,16 +21,12 @@ export class MovieListComponent implements OnInit {
     constructor(private http: Http) {
         //called first time before the ngOnInit()
 
-        http.get(this.moviesUrl)
-            .map(res => res.json()) // Map will change your response ot json()
-            .subscribe(movies => this.movies = movies,
-                err => console.log('error:', err)
-            );
-
     }
 
     ngOnInit() {
         //called after the constructor and called after the first ngOnChanges
+
+        this.moviesUrl = '../data/movies.json';
         this.pageTitle = 'Top iMDB Movies';
 
         this.sortItems = [{name: 'Title', value: "Title"}, {name: 'Year', value: "Year"}, {name: 'Rating', value: "imdbRating"}];
@@ -38,6 +34,12 @@ export class MovieListComponent implements OnInit {
 
         this.sortedBy  = this.sortItems[2].value;
         this.orderedBy = this.orderItems[1].value;
+
+        this.http.get(this.moviesUrl)
+            .map(res => res.json()) // Map will change your response ot json()
+            .subscribe(movies => this.movies = movies,
+                err => console.log('error:', err)
+            );
 
     }
 }
